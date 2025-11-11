@@ -15,14 +15,16 @@ The project integrates data preprocessing, prompt generation, Azure OpenAI infer
 | ```data_process.py``` | Merges some of the study ```.csv```'s under ```/data/``` into a unified ```participants_data.json```, formatting behavioral and demographic records. |
 | ```prompts_gen.py``` | Randomly samples **100 patients** and **100 caregivers**, then generates role-specific prompts for prediction days (0, 20, 40, 60, 80, 100, 120). |
 | ```inference.py``` | Calls **Azure OpenAI API** to simulate participant decisions (Yes/No) for mood-survey completion, saving predictions incrementally to ```.json```. |
-| ```eval.ipynb``` | Evaluates model predictions vs. ground truth (from ```participants_data.json```) and visualizes metrics such as TPR, FPR, accuracy, and cross-entropy loss. |
+| ```eval.ipynb``` | Evaluates model predictions vs. ground truth (from ```participants_data.json```) and visualizes metrics such as TPR, FPR, overall accuracy, and cross-entropy loss. |
 
 ---
 
 ## 🧩 Pipeline Steps
 
 ### 1️⃣ Data Processing-```data_process.py```
-**Goal**: Build a unified JSON dataset ```participants_data.json``` from multiple raw ```.csv``` files under ./data.
+**Goal**: Build a unified ```.json``` dataset ```participants_data.json``` from multiple raw ```.csv``` files under ```./data```.
+**Input files**: 
+- 
 Run the preprocessing script to integrate demographic, mood, and behavioral data:
 ```bash
 python data_process.py
