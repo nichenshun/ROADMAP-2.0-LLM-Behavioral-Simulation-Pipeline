@@ -47,7 +47,7 @@ Generate LLM simulation prompts for both participant groups:
 python prompts_gen.py
 ```
 
-This will create prompt files under /prompts/, e.g.:
+This will create prompt files under ```/prompts/```, e.g.:
 ```bash
 prompts/
 ├── patients_day0.json
@@ -55,6 +55,17 @@ prompts/
 ...
 ├── caregivers_day120.json
 ```
+
+Each file contains 100 randomy sampled participants per caregivers and patients.
+
+### 3️⃣ Inference via Azure OpenAI
+Run behavioral simulations using Azure OpenAI API:
+```bash
+python inference.py
+```
+
+The script iterates through all participant prompts for the specified day and role,
+calls the model (e.g., gpt-5-mini), and saves each result immediately to /predictions/.
 
 
 
