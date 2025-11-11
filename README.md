@@ -12,7 +12,7 @@ The project integrates data preprocessing, prompt generation, Azure OpenAI infer
 ### 🔹 Modules
 | Script | Description |
 |--------|--------------|
-| `data_process.py` | Merges some of the study `.csv`'s under `/data/` into a unified `participants_demographics.json`, formatting behavioral and demographic records. |
+| `data_process.py` | Merges some of the study ```.csv```'s under ```/data/``` into a unified ```participants_demographics.json```, formatting behavioral and demographic records. |
 | `prompts_gen.py` | Randomly samples **100 patients** and **100 caregivers**, then generates role-specific prompts for prediction days (0, 20, 40, 60, 80, 100, 120). |
 | `inference.py` | Calls **Azure OpenAI API** to simulate participant decisions (Yes/No) for mood-survey completion, saving predictions incrementally to JSON. |
 | `eval.ipynb` | Evaluates model predictions vs. ground truth (from `participants_demographics.json`) and visualizes metrics such as TPR, FPR, accuracy, and cross-entropy loss. |
