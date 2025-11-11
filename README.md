@@ -23,7 +23,7 @@ The project integrates data preprocessing, prompt generation, Azure OpenAI infer
 
 ### 1️⃣ Data Processing-```data_process.py```
 **Goal**: Build a unified ```.json``` dataset ```participants_data.json``` from multiple raw ```.csv``` files under ```./data```.
-**Input files**: 
+**Input files**.
 - 
 Run the preprocessing script to integrate demographic, mood, and behavioral data:
 ```bash
@@ -34,14 +34,46 @@ This produces a comprehensive file:
 ``` bash
 participants_data.json
 ```
-where each participant record includes:
+where each top-level key is a participant ID (e.g., ```"P311"```). The structure for each participant looks roughly like:
+```bash
+"P311": {
+  "Demographic": {
+    "arm": "Intervention",
+    "cg_hours": "Less than or equal to 40 hours",
+    "age": "61+",
+    "gender": "Female",
+    "monthly_income": "$1,000 - $2,999",
+    "transplant_type": "Autologous",
+    "dyad_id": 1,
+    "role": "Caregivers",
+    "in_hospital_days": "OHSU patient"
+  },
+  "Daily steps": {
+    "Day 4": 11287.0,
+    "Day 5": 17519.0
+  },
+  "Sedentary (minutes)": {
+    "Day 4": 1159.0,
+    "Day 5": 1040.0
+  },
+  "Active minutes": {
+    "Day 4": 278.0,
+    "Day 5": 353.0
+  },
+  "Sleep duration (hours)": {
+    "Day 18": 8.07
+  },
+  "Sleep duration (classic, hours)": {
+    "Day 42": 2.45
+  },
+  "Mood": {
+    "Day 0": "Missing",
+    "Day 4": 9.0,
+    "Day 5": 8.0
+  }
+}
 
-- Demographics (age, gender, monthly income, etc.)
-- Daily steps
-- Sedentary minutes
-- Active minutes
-- Sleep duration
-- Mood-survey history (Days 0–120)
+```
 
 ### 2️⃣ Prompt Generation
 Generate LLM simulation prompts for both participant groups:
