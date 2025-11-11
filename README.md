@@ -23,7 +23,7 @@ The project integrates data preprocessing, prompt generation, Azure OpenAI infer
 
 ### 1️⃣ Data Processing-`data_process.py`
 
-**Goal**: Build a unified `.json` dataset `participants_data.json` from multiple raw `.csv` files under `./data`.
+**Goal**: Build a unified `.json` dataset `participants_data.json` from multiple raw `.csv` files under `./data`.  
 
 **Input files**:
 - 
