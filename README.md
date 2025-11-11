@@ -22,7 +22,7 @@ The project integrates data preprocessing, prompt generation, Azure OpenAI infer
 ## 🧩 Pipeline Steps
 
 ### 1️⃣ Data Processing-```data_process.py```
-\bold{Goal}: Build a unified JSON dataset participants_demographics.json from multiple raw CSV files under ./data.
+**Goal**: Build a unified JSON dataset participants_demographics.json from multiple raw CSV files under ./data.
 Run the preprocessing script to integrate demographic, mood, and behavioral data:
 ```bash
 python data_process.py
