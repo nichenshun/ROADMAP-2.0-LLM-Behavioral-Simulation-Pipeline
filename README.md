@@ -26,9 +26,8 @@ Run the preprocessing script to integrate demographic, mood, and behavioral data
 ```bash
 python data_process.py
 
-This produces a comprehensive file:
+This produces a comprehensive file: 
 participants_demographics.json
-
 where each participant record includes:
 
 Demographics
@@ -38,5 +37,19 @@ Daily steps, sedentary minutes, active minutes
 Sleep duration (stages and classic)
 
 Mood-survey history (Days 0–120)
+
+### 2️⃣ Prompt Generation
+Generate LLM simulation prompts for both participant groups:
+```bash
+python prompts_gen.py
+
+This will create prompt files under /prompts/, e.g.:
+prompts/
+├── patients_day0.json
+├── patients_day20.json
+...
+├── caregivers_day120.json
+
+
 
 
