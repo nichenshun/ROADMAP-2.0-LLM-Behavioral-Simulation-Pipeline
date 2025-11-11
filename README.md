@@ -37,7 +37,7 @@ Demographics
 
 Daily steps, sedentary minutes, active minutes
 
-Sleep duration (stages and classic)
+Sleep duration 
 
 Mood-survey history (Days 0–120)
 
@@ -45,13 +45,16 @@ Mood-survey history (Days 0–120)
 Generate LLM simulation prompts for both participant groups:
 ```bash
 python prompts_gen.py
+```
 
 This will create prompt files under /prompts/, e.g.:
+```bash
 prompts/
 ├── patients_day0.json
 ├── patients_day20.json
 ...
 ├── caregivers_day120.json
+```
 
 
 
