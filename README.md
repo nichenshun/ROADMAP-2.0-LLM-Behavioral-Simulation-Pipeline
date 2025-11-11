@@ -26,7 +26,14 @@ The project integrates data preprocessing, prompt generation, Azure OpenAI infer
 **Goal**: Build a unified `.json` dataset `participants_data.json` from multiple raw `.csv` files under `./data`.<br>
 
 **Input files**:
-- 
+```bash
+- demographic_data.csv
+- daily_steps.csv
+- daily_activity.csv
+- sleep_stages.csv
+- sleep_classic.csv
+- mood.csv
+```
 Run the preprocessing script to integrate demographic, mood, and behavioral data:
 ```bash
 python data_process.py
