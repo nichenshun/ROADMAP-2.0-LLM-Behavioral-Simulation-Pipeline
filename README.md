@@ -38,7 +38,7 @@ This produces a comprehensive file:
 ``` bash
 participants_data.json
 ```
-where each top-level key is a participant ID (e.g., ```"P311"```). The structure for each participant looks roughly like:
+**Example**: The structure for each participant (e.g., ```"P311"```) looks roughly like:
 ```bash
 "P311": {
   "Demographic": {
