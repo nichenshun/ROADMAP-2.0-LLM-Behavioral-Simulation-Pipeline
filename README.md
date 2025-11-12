@@ -211,7 +211,7 @@ For a given ```(role, day)``` pair:
 
 **Reply example**
 Expect a JSON-formatted assistant reply with keys: ```id```, ```day```, ```reason_do```, ```reason_not```, ```decision```, ```confidence```:
-bash```
+```bash
 "model_response_parsed": {
       "id": "P273",
       "day": 20,
