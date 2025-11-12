@@ -18,13 +18,9 @@ The project integrates data preprocessing, prompt generation, Azure OpenAI infer
 | ```eval.ipynb``` | Evaluates model predictions vs. ground truth (from ```participants_data.json```) and visualizes metrics such as TPR, FPR, overall accuracy, and cross-entropy loss. |
 
 ---
-
 ## 🧩 Pipeline Steps
-
-### 1️⃣ Data Processing-`data_process.py`
-
-**Goal**: Build a unified `.json` dataset `participants_data.json` from multiple raw `.csv` files under `./data`.<br>
-
+### 1️⃣ Data Processing 
+**Goal**: Build a unified `.json` dataset `participants_data.json` from multiple raw `.csv` files under `/data`.
 **Input files**:
 ```bash
 - demographic_data.csv
@@ -34,11 +30,10 @@ The project integrates data preprocessing, prompt generation, Azure OpenAI infer
 - sleep_classic.csv
 - mood.csv
 ```
-Run the preprocessing script:
+**Run**:
 ```bash
 python data_process.py
 ```
-
 This produces a comprehensive file: 
 ``` bash
 participants_data.json
@@ -81,15 +76,22 @@ where each top-level key is a participant ID (e.g., ```"P311"```). The structure
     "Day 5": 8.0
   }
 }
-
 ```
-
-### 2️⃣ Prompt Generation
-Generate LLM simulation prompts for both participant groups:
+### 2️⃣ Prompt Generation 
+**Goal**: Generate natural-language prompts for the LLM, one per participant per target day, encoding:
+- Participant’s demographic background
+- Dyad partner’s background (caregiver ↔ patient)
+- Historical mood completion pattern up to (but not including) the target day
+- A standardized **Question / Explain / Estimate** instruction asking the model to decide whether the participant will complete **the target’s** mood survey
+**Sampling strategy**: From ```participants_data.json```, the script ```prompts_gen.py``` randomly samples
+- 100 patients
+- 100 caregivers
+and all subsequent prompts and experiments are restricted to this sampled subset.
+**Run**:
 ```bash
 python prompts_gen.py
 ```
-This will create prompt files under ```/prompts/```:
+This will create prompt ```.json``` files under ```/prompts```:
 ```bash
 prompts/
 ├── caregivers_day0.json
@@ -104,7 +106,7 @@ prompts/
 ...
 ├── patients_day120.json
 ```
-Each file contains 100 randomy sampled participants per caregivers and patients.
+Each file contains 100 randomy sampled participants.
 
 ### 3️⃣ Inference via Azure OpenAI
 Run behavioral simulations using ```Azure OpenAI API```:
