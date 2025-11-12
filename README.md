@@ -187,6 +187,7 @@ Then state your prediction clearly as one of: “Yes” or “No”.
 Keep your output concise and grounded in the provided context. 
 ```
 - The ```participant-specific user prompt``` from ```/prompts```
+
 Then store the model’s ```.json``` response for analysis.
 
 **Behavior**:
