@@ -34,7 +34,7 @@ The project integrates data preprocessing, prompt generation, Azure OpenAI infer
 - sleep_classic.csv
 - mood.csv
 ```
-Run the preprocessing script to integrate demographic, mood, and behavioral data:
+Run the preprocessing script:
 ```bash
 python data_process.py
 ```
@@ -92,10 +92,17 @@ python prompts_gen.py
 This will create prompt files under ```/prompts/```:
 ```bash
 prompts/
-├── patients_day0.json
-├── patients_day20.json
+├── caregivers_day0.json
+├── caregivers_day20.json
+├── caregivers_day40.json
 ...
 ├── caregivers_day120.json
+
+├── patients_day0.json
+├── patients_day20.json
+├── patients_day40.json
+...
+├── patients_day120.json
 ```
 Each file contains 100 randomy sampled participants per caregivers and patients.
 
