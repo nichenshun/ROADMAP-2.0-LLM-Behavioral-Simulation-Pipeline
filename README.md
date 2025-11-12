@@ -54,26 +54,31 @@ participants_data.json
   },
   "Daily steps": {
     "Day 4": 11287.0,
-    "Day 5": 17519.0
+    "Day 5": 17519.0,
+    ...
   },
   "Sedentary (minutes)": {
     "Day 4": 1159.0,
-    "Day 5": 1040.0
+    "Day 5": 1040.0,
+    ...
   },
   "Active minutes": {
     "Day 4": 278.0,
-    "Day 5": 353.0
+    "Day 5": 353.0,
+    ...
   },
   "Sleep duration (hours)": {
-    "Day 18": 8.07
+    "Day 18": 8.07,
+    "Day 22": 7.79,
+    ...
   },
   "Sleep duration (classic, hours)": {
     "Day 42": 2.45
   },
   "Mood": {
-    "Day 0": "Missing",
     "Day 4": 9.0,
-    "Day 5": 8.0
+    "Day 5": 8.0,
+    ...
   }
 }
 ```
