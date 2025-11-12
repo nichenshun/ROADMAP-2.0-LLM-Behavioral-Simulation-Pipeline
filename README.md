@@ -83,7 +83,7 @@ where each top-level key is a participant ID (e.g., ```"P311"```). The structure
 - Dyad partner’s background (caregiver ↔ patient)
 - Historical mood completion pattern up to (but not including) the target day
 - A standardized **Question / Explain / Estimate** instruction asking the model to decide whether the participant will complete **the target’s** mood survey
-- 
+  
 **Sampling strategy**: From ```participants_data.json```, the script ```prompts_gen.py``` randomly samples
 - 100 patients
 - 100 caregivers
