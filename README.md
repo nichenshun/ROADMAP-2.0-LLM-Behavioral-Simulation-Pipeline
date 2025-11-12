@@ -135,14 +135,79 @@ Then state your prediction clearly as one of: “Yes” or “No”.
 
 Keep your output concise and grounded in the provided context. 
 ```
-
-### 3️⃣ Inference via Azure OpenAI
-Run behavioral simulations using ```Azure OpenAI API```:
+- User prompt for patients (e.g., ```"P094"```, ```target=Day 20```):
 ```bash
-python inference.py
+You are a patient participant in a dyad in the ROADMAP 2.0 mobile-health study. 
+
+You are a patient recovering from a hematopoietic cell transplantation (HCT) to treat a blood-related disease such as leukemia or lymphoma. During recovery, you may experience fatigue, nausea, pain, sleep disturbances, and emotional stress, while relying on your care partner and medical team to help you regain strength and prevent complications like infections or graft-versus-host disease. 
+
+Each day, you are asked to enter your mood on a 1–10 scale (1=worst, 10=best). 
+
+The study seeks to understand links between sensor data and well-being and to support caregivers during and after transplant. 
+
+Each time step in this simulation represents one day.
+
+Below is your background and history with the program. Based on this information, decide whether you will complete today’s mood survey.
+
+- **Your Background:**
+- You are in the 61+ age group.
+- Your gender is Male.
+- Your monthly income is $3,000 - $4,999.
+- You are assigned to the Intervention arm of the study.
+- Your role is Patients.
+- Your transplant type is Allogeneic.
+- You have stayed in the hospital for 20.
+- You receive caregiving for Less than or equal to 40 hours per week.
+
+- **Your caregiver partner’s background information**
+- You are in the 61+ age group.
+- Your gender is Female.
+- Your monthly income is $5,000 - $6,999.
+- You are assigned to the Intervention arm of the study.
+- Your role is Caregivers.
+- You are caring for a patient whose transplant type is Allogeneic.
+- The patient you care for has stayed in the hospital for 20.
+- You provide caregiving for Less than or equal to 40 hours per week.
+
+- **Context: past behavior:**
+Below is a record of your previous mood survey record (each representing one day):
+{
+  "Day 0": "Missing",
+  "Day 1": "Missing",
+  "Day 2": "Missing",
+  "Day 3": "Missing",
+  "Day 4": "Missing",
+  "Day 5": 7.0,
+  ...
+
+
 ```
-The script iterates through all participant prompts for the specified day and role,
-calls the model (e.g., gpt-5-mini), and saves each result immediately to ```/predictions/```.
+  
+
+### 3️⃣ Inference 
+**Goal**: For each sampled participant and each target day, call the Azure OpenAI API with:
+- The ```fixed system prompt``` describing the ROADMAP 2.0 study and the modeling goal
+- The ```participant-specific user prompt``` from ```/prompts```
+Then store the model’s ```.json``` response for analysis.
+
+**Behavior**:
+For a given ```(role, day)``` pair:
+
+- Load ```prompts/{role}_day{day}.json```.
+
+- Iterate over all participants in that file.
+
+  - For each participant:
+  
+    - Send a chat completion request with:
+  
+      - ```Fixed system prompt```
+  
+      - ```participant-specific user prompt```
+
+Expect a JSON-formatted assistant reply with keys: ```id```, ```day```, ```reason_do```, ```reason_not```, ```decision```, ```confidence```.
+
+predictions/{role}_day{day}_results.json
 
 
 
