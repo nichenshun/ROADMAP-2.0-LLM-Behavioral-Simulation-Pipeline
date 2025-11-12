@@ -124,139 +124,185 @@ prompts/
 ```
 **Example**
 
-- User prompt for patients (e.g., ```"P094"```, ```target=Day 20```):
+- User prompt for patients (e.g., ```"P117"```, ```target=Day 40```):
 ```bash
 You are a patient participant in a dyad in the ROADMAP 2.0 mobile-health study. 
 
 You are a patient recovering from a hematopoietic cell transplantation (HCT) to treat a blood-related disease such as leukemia or lymphoma. During recovery, you may experience fatigue, nausea, pain, sleep disturbances, and emotional stress, while relying on your care partner and medical team to help you regain strength and prevent complications like infections or graft-versus-host disease. 
 
-Each day, you are asked to enter your mood on a 1–10 scale (1=worst, 10=best). 
+Each day, you are asked to enter your mood on a 1-10 scale (1=worst, 10=best). 
 
 The study seeks to understand links between sensor data and well-being and to support caregivers during and after transplant. 
 
 Each time step in this simulation represents one day.
 
-Below is your background and history with the program. Based on this information, decide whether you will complete today’s mood survey.
+Below is your background and history with the program. Based on this information, decide whether you will complete today's mood survey.
 
 - **Your Background:**
 - You are in the 61+ age group.
-- Your gender is Male.
+- Your gender is female.
 - Your monthly income is $3,000 - $4,999.
 - You are assigned to the Intervention arm of the study.
-- Your role is Patients.
-- Your transplant type is Allogeneic.
-- You have stayed in the hospital for 20.
-- You receive caregiving for Less than or equal to 40 hours per week.
+- Your transplant type is Autologous.
+- You stayed in the hospital for 14 days.
+- You receive caregiving from your caregiver for Less than or equal to 40 hours per week.
 
-- **Your caregiver partner’s background information**
-- You are in the 61+ age group.
-- Your gender is Female.
-- Your monthly income is $5,000 - $6,999.
-- You are assigned to the Intervention arm of the study.
-- Your role is Caregivers.
-- You are caring for a patient whose transplant type is Allogeneic.
-- The patient you care for has stayed in the hospital for 20.
-- You provide caregiving for Less than or equal to 40 hours per week.
+- **Your caregiver partner's background information**
+- Your caregiver is in the 61+ age group.
+- Your caregiver's gender is male.
 
 - **Context: past behavior:**
 Below is a record of your previous mood survey record (each representing one day):
 {
-  "Day 0": "Missing",
-  "Day 1": "Missing",
-  "Day 2": "Missing",
-  "Day 3": "Missing",
-  "Day 4": "Missing",
-  "Day 5": 7.0,
-  "Day 6": "Missing",
-  "Day 7": "Missing",
-  "Day 8": "Missing",
-  "Day 9": "Missing",
-  "Day 10": "Missing",
-  "Day 11": "Missing",
-  "Day 12": "Missing",
-  "Day 13": "Missing",
-  "Day 14": "Missing",
-  "Day 15": "Missing",
-  "Day 16": "Missing",
-  "Day 17": "Missing",
-  "Day 18": "Missing",
-  "Day 19": "Missing"
+  "Day 0": "missing",
+  "Day 1": 8.0,
+  "Day 2": "missing",
+  "Day 3": "missing",
+  "Day 4": "missing",
+  "Day 5": 1.0,
+  "Day 6": 8.0,
+  "Day 7": 9.0,
+  "Day 8": 9.0,
+  "Day 9": 9.0,
+  "Day 10": "missing",
+  "Day 11": 9.0,
+  "Day 12": "missing",
+  "Day 13": "missing",
+  "Day 14": 10.0,
+  "Day 15": "missing",
+  "Day 16": "missing",
+  "Day 17": "missing",
+  "Day 18": "missing",
+  "Day 19": "missing",
+  "Day 20": "missing",
+  "Day 21": "missing",
+  "Day 22": "missing",
+  "Day 23": "missing",
+  "Day 24": "missing",
+  "Day 25": "missing",
+  "Day 26": "missing",
+  "Day 27": "missing",
+  "Day 28": "missing",
+  "Day 29": "missing",
+  "Day 30": "missing",
+  "Day 31": "missing",
+  "Day 32": "missing",
+  "Day 33": "missing",
+  "Day 34": "missing",
+  "Day 35": "missing",
+  "Day 36": "missing",
+  "Day 37": "missing",
+  "Day 38": "missing",
+  "Day 39": "missing"
 }
 
-- **Question:** Today is Day 20. Will you complete today’s mood survey?
+- **Question:** Today is Day 40. Will you complete today's mood survey?
 - **Explain:** Give one reason to complete the survey and one reason not to; then state your final decision for today (Yes / No).
 - **Estimate:** Report the probability that your decision is correct as a single number between 0 and 1 (e.g., 0.73).
 
 At the end, output a single JSON object with exactly these keys (no extra text):
-{"id": "P094", "day": 20, "reason_do": "<string>", "reason_not": "<string>", "decision": "<Yes|No>", "confidence": <float between 0 and 1>}
+{"id": "P117", "day": 40, "reason_do": "<string>", "reason_not": "<string>", "decision": "<Yes|No>", "confidence": <float between 0 and 1>}
 
 ```
 
-User prompt for caregivers (e.g., ```"P0273"```, ```target=Day 20```):
+User prompt for caregivers (e.g., ```"P210"```, ```target=Day 60```):
 ```bash
 You are a caregiver participant in a dyad in the ROADMAP 2.0 mobile-health study. 
 
 You are a caregiver for a loved one recovering from a hematopoietic cell transplantation (HCT) for a serious blood or immune disorder. You provide daily physical and emotional support, monitor for complications, manage medications and appointments, and balance these duties with your own daily work routine. 
 
-Each day, you are asked to enter your mood on a 1–10 scale (1=worst, 10=best). 
+Each day, you are asked to enter your mood on a 1-10 scale (1=worst, 10=best). 
 
 The study seeks to understand links between sensor data and well-being and to support caregivers during and after transplant. 
 
 Each time step in this simulation represents one day.
 
-Below is your background and history with the program. Based on this information, decide whether you will complete today’s mood survey.
+Below is your background and history with the program. Based on this information, decide whether you will complete today's mood survey.
 
 - **Your Background:**
-- You are in the 40-60 age group.
-- Your gender is Female.
-- Your monthly income is $1,000 - $2,999.
-- You are assigned to the Intervention arm of the study.
-- Your role is Caregivers.
-- You are caring for a patient whose transplant type is Autologous.
-- The patient you care for has stayed in the hospital for 15.
-- You provide caregiving for Less than or equal to 40 hours per week.
-
-- **Your patient partner’s background information**
 - You are in the 61+ age group.
-- Your gender is Male.
+- Your gender is female.
 - Your monthly income is Less than $1,000.
-- You are assigned to the Intervention arm of the study.
-- Your role is Patients.
-- Your transplant type is Autologous.
-- You have stayed in the hospital for 15.
-- You receive caregiving for Less than or equal to 40 hours per week.
+- You provide caregiving to your patient for Less than or equal to 40 hours per week.
+
+- **Your patient partner's background information**
+- Your patient is in the 61+ age group.
+- Your patient's gender is male.
+- Your patient is assigned to the Intervention arm of the study.
+- Your patient's transplant type is Allogeneic.
+- Your patient is an OHSU patient.
 
 - **Context: past behavior:**
 Below is a record of your previous mood survey record (each representing one day):
 {
-  "Day 0": "Missing",
-  "Day 1": 8.0,
-  "Day 2": 8.0,
-  "Day 3": 4.0,
-  "Day 4": 8.0,
-  "Day 5": 10.0,
-  "Day 6": 10.0,
-  "Day 7": 5.0,
-  "Day 8": 5.0,
-  "Day 9": 4.0,
-  "Day 10": 5.0,
-  "Day 11": 7.0,
-  "Day 12": 5.0,
-  "Day 13": 5.0,
-  "Day 14": 8.0,
-  "Day 15": 7.0,
-  "Day 16": 9.0,
-  "Day 17": 7.0,
-  "Day 18": 8.0,
-  "Day 19": 7.0
+  "Day 0": "missing",
+  "Day 1": 9.0,
+  "Day 2": 9.0,
+  "Day 3": 9.0,
+  "Day 4": 9.0,
+  "Day 5": 9.0,
+  "Day 6": 9.0,
+  "Day 7": 8.0,
+  "Day 8": 9.0,
+  "Day 9": 9.0,
+  "Day 10": 8.0,
+  "Day 11": 9.0,
+  "Day 12": 9.0,
+  "Day 13": 9.0,
+  "Day 14": 9.0,
+  "Day 15": 9.0,
+  "Day 16": 10.0,
+  "Day 17": 9.0,
+  "Day 18": 9.0,
+  "Day 19": 9.0,
+  "Day 20": 9.0,
+  "Day 21": 9.0,
+  "Day 22": 9.0,
+  "Day 23": 9.0,
+  "Day 24": 9.0,
+  "Day 25": "missing",
+  "Day 26": 9.0,
+  "Day 27": "missing",
+  "Day 28": 9.0,
+  "Day 29": 8.0,
+  "Day 30": 9.0,
+  "Day 31": 9.0,
+  "Day 32": 6.0,
+  "Day 33": 9.0,
+  "Day 34": 9.0,
+  "Day 35": 9.0,
+  "Day 36": "missing",
+  "Day 37": 8.0,
+  "Day 38": 9.0,
+  "Day 39": 9.0,
+  "Day 40": 9.0,
+  "Day 41": "missing",
+  "Day 42": 9.0,
+  "Day 43": 9.0,
+  "Day 44": 9.0,
+  "Day 45": 9.0,
+  "Day 46": 9.0,
+  "Day 47": 9.0,
+  "Day 48": 9.0,
+  "Day 49": 7.0,
+  "Day 50": 7.0,
+  "Day 51": 8.0,
+  "Day 52": 8.0,
+  "Day 53": 9.0,
+  "Day 54": 9.0,
+  "Day 55": 9.0,
+  "Day 56": "missing",
+  "Day 57": 9.0,
+  "Day 58": 9.0,
+  "Day 59": 9.0
 }
 
-- **Question:** Today is Day 20. Will you complete today’s mood survey?
+- **Question:** Today is Day 60. Will you complete today's mood survey?
 - **Explain:** Give one reason to complete the survey and one reason not to; then state your final decision for today (Yes / No).
 - **Estimate:** Report the probability that your decision is correct as a single number between 0 and 1 (e.g., 0.73).
 
 At the end, output a single JSON object with exactly these keys (no extra text):
-{"id": "P273", "day": 20, "reason_do": "<string>", "reason_not": "<string>", "decision": "<Yes|No>", "confidence": <float between 0 and 1>}
+{"id": "P210", "day": 60, "reason_do": "<string>", "reason_not": "<string>", "decision": "<Yes|No>", "confidence": <float between 0 and 1>}
 ```
   
 
