@@ -87,6 +87,7 @@ where each top-level key is a participant ID (e.g., ```"P311"```). The structure
 **Sampling strategy**: From ```participants_data.json```, the script ```prompts_gen.py``` randomly samples
 - 100 patients
 - 100 caregivers
+
 All subsequent prompts and experiments are restricted to this sampled subset.
 
 **Run**:
