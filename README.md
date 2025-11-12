@@ -216,6 +216,22 @@ For a given ```(role, day)``` pair:
       - ```Fixed system prompt```
   
       - ```participant-specific user prompt```
+     
+**Run**
+- Patient, Day 20:
+```bash
+python inference.py patients 20 \
+  --api-key "YOUR_AZURE_OPENAI_API_KEY" \
+  --endpoint "https://YOUR-RESOURCE.openai.azure.com/" \
+  --deployment "YOUR_DEPLOYMENT_NAME"
+```
+- Caregiver, Day 60:
+```bash
+python inference.py caregivers 60 \
+  --api-key "YOUR_AZURE_OPENAI_API_KEY" \
+  --endpoint "https://YOUR-RESOURCE.openai.azure.com/" \
+  --deployment "YOUR_DEPLOYMENT_NAME"
+```
 
 **Reply example**
 
