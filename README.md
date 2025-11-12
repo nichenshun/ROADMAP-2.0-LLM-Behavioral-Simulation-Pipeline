@@ -41,6 +41,7 @@ This produces a comprehensive file:
 participants_data.json
 ```
 **Example**
+
 The structure for each participant (e.g., ```"P311"```) looks roughly like:
 ```bash
 "P311": {
@@ -87,6 +88,7 @@ The structure for each participant (e.g., ```"P311"```) looks roughly like:
 ```
 ### 2️⃣ Prompt Generation 
 **Goal**
+
 Generate natural-language prompts for the LLM, one per participant per target day, encoding:
 - Participant’s demographic background
 - Dyad partner’s background (caregiver ↔ patient)
@@ -94,6 +96,7 @@ Generate natural-language prompts for the LLM, one per participant per target da
 - A standardized **Question / Explain / Estimate** instruction asking the model to decide whether the participant will complete **the target’s** mood survey
   
 **Sampling strategy**
+
 From ```participants_data.json```, the script ```prompts_gen.py``` randomly samples
 - 100 patients
 - 100 caregivers
@@ -120,6 +123,7 @@ prompts/
 ├── patients_day120.json
 ```
 **Example**
+
 - User prompt for patients (e.g., ```"P094"```, ```target=Day 20```):
 ```bash
 You are a patient participant in a dyad in the ROADMAP 2.0 mobile-health study. 
@@ -171,6 +175,7 @@ Below is a record of your previous mood survey record (each representing one day
 
 ### 3️⃣ Inference 
 **Goal**
+
 For each sampled participant and each target day, call the Azure OpenAI API with:
 - The ```fixed system prompt``` describing the ROADMAP 2.0 study and the modeling goal
 ```bash
@@ -196,7 +201,8 @@ Keep your output concise and grounded in the provided context.
 
 Then store the model’s ```.json``` response for analysis.
 
-**Behavior**:
+**Behavior**
+
 For a given ```(role, day)``` pair:
 
 - Load ```prompts/{role}_day{day}.json```.
@@ -212,6 +218,7 @@ For a given ```(role, day)``` pair:
       - ```participant-specific user prompt```
 
 **Reply example**
+
 Expect a JSON-formatted assistant reply with keys: ```id```, ```day```, ```reason_do```, ```reason_not```, ```decision```, ```confidence```:
 ```bash
 "model_response_parsed": {
