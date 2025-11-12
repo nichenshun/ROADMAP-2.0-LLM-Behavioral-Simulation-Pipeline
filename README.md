@@ -21,7 +21,7 @@ The project integrates data preprocessing, prompt generation, Azure OpenAI infer
 ## 🧩 Pipeline Steps
 ### 1️⃣ Data Processing 
 **Goal**: Build a unified `.json` dataset `participants_data.json` from multiple raw `.csv` files under `/data`.
-**Input files**:
+**Input files**
 ```bash
 - demographic_data.csv
 - daily_steps.csv
@@ -30,7 +30,7 @@ The project integrates data preprocessing, prompt generation, Azure OpenAI infer
 - sleep_classic.csv
 - mood.csv
 ```
-**Run**:
+**Run**
 ```bash
 python data_process.py
 ```
@@ -38,7 +38,8 @@ This produces a comprehensive file:
 ``` bash
 participants_data.json
 ```
-**Example**: The structure for each participant (e.g., ```"P311"```) looks roughly like:
+**Example**
+The structure for each participant (e.g., ```"P311"```) looks roughly like:
 ```bash
 "P311": {
   "Demographic": {
@@ -83,19 +84,21 @@ participants_data.json
 }
 ```
 ### 2️⃣ Prompt Generation 
-**Goal**: Generate natural-language prompts for the LLM, one per participant per target day, encoding:
+**Goal**
+Generate natural-language prompts for the LLM, one per participant per target day, encoding:
 - Participant’s demographic background
 - Dyad partner’s background (caregiver ↔ patient)
 - Historical mood completion pattern up to (but not including) the target day
 - A standardized **Question / Explain / Estimate** instruction asking the model to decide whether the participant will complete **the target’s** mood survey
   
-**Sampling strategy**: From ```participants_data.json```, the script ```prompts_gen.py``` randomly samples
+**Sampling strategy**
+From ```participants_data.json```, the script ```prompts_gen.py``` randomly samples
 - 100 patients
 - 100 caregivers
 
 All subsequent prompts and experiments are restricted to this sampled subset.
 
-**Run**:
+**Run**
 ```bash
 python prompts_gen.py
 ```
@@ -114,7 +117,7 @@ prompts/
 ...
 ├── patients_day120.json
 ```
-**Example**:
+**Example**
 - User prompt for patients (e.g., ```"P094"```, ```target=Day 20```):
 ```bash
 You are a patient participant in a dyad in the ROADMAP 2.0 mobile-health study. 
@@ -165,7 +168,8 @@ Below is a record of your previous mood survey record (each representing one day
   
 
 ### 3️⃣ Inference 
-**Goal**: For each sampled participant and each target day, call the Azure OpenAI API with:
+**Goal**
+For each sampled participant and each target day, call the Azure OpenAI API with:
 - The ```fixed system prompt``` describing the ROADMAP 2.0 study and the modeling goal
 ```bash
 You are role-playing a specific participant enrolled in the ROADMAP 2.0 study, a randomized clinical trial at the University of Michigan Blood and Marrow Transplant Program to evaluate a mobile health app intervention designed to improve caregiver quality of life during their partner’s hematopoietic cell transplantation.
@@ -205,9 +209,21 @@ For a given ```(role, day)``` pair:
   
       - ```participant-specific user prompt```
 
-Expect a JSON-formatted assistant reply with keys: ```id```, ```day```, ```reason_do```, ```reason_not```, ```decision```, ```confidence```.
+**Reply example**
+Expect a JSON-formatted assistant reply with keys: ```id```, ```day```, ```reason_do```, ```reason_not```, ```decision```, ```confidence```:
+bash```
+"model_response_parsed": {
+      "id": "P273",
+      "day": 20,
+      "reason_do": "I want to contribute to the study and check in now that my partner is home after a long 15-day hospital stay to help track how I'm coping.",
+      "reason_not": "I haven't opened the app for any of the past 20 days and it's easy to forget or get busy with caregiving tasks and limited time/resources.",
+      "decision": "No",
+      "confidence": 0.88
+    }
+```
 
-predictions/{role}_day{day}_results.json
+
+
 
 
 
