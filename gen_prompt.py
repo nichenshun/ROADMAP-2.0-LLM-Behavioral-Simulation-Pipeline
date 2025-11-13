@@ -64,7 +64,7 @@ import os
 # Config
 # --------------------
 DEMOGRAPHICS_JSON_PATH = "participants_data.json"  # keep as provided
-OUTPUT_DIR = "prompts3"
+OUTPUT_DIR = "prompts"
 
 TARGET_DAYS = [0, 20, 40, 60, 80, 100, 120]   # include Day 0 as requested
 N_PATIENTS = 100
