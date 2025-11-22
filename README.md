@@ -239,7 +239,8 @@ Below is a record of your previous mood survey record (each representing one day
 At the end, output a single JSON object with exactly these keys (no extra text):
 {"id": "P210", "day": 60, "reason_do": "<string>", "reason_not": "<string>", "decision": "<Yes|No>", "confidence": <float between 0 and 1>}
 ```
-  
+**Example**
+```prompt_pre7days_activity.py```
 
 ### 3️⃣ Inference 
 **Goal**
