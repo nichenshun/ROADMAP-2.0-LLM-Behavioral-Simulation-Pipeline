@@ -26,6 +26,23 @@ The primary objectives are to:
 | ```/inference``` | Calls **Azure OpenAI API** to simulate participant decisions (Yes/No) for mood-survey completion, saving predictions incrementally to ```.json```. |
 | ```/eval``` | Evaluates model predictions vs. ground truth (from ```participants_data.json```) and visualizes metrics such as TPR, FPR, overall accuracy, and cross-entropy loss. |
 
+``` bash
+prompt/
+├── prompt_pre7days_activity.py # Prompts for pre-7-days activity setting
+└── prompt_vanilla.py # Vanilla prompt templates
+
+inference/
+├── single_infer.py # Single-sample inference
+└── traj_infer.py # Trajectory-based inference
+
+eval/
+├── eval_overall.ipynb # Overall evaluation
+├── eval_pre7days_activity.ipynb# Evaluation for pre-7-days activity setting
+├── eval_traj0.ipynb # Evaluation on traj_0 dataset
+├── eval_vanilla.ipynb # Vanilla baseline evaluation
+└── eval_mjvote.ipynb # Majority-vote evaluation
+```
+
 ---
 ## 🧩 Pipeline Steps
 ### 1️⃣ Data Processing 
