@@ -141,9 +141,8 @@ prompts/
 ...
 ├── patients_day120.json
 ```
-**Example**
-```prompt_vanilla.py```
-- User prompt for patients (e.g., ```"P117"```, ```target=Day 40```):
+**Example** ```prompt_vanilla.py```
+- User prompt for patients (e.g., ```target=Day 40```):
 ```bash
 You are a patient participant in a dyad in the ROADMAP 2.0 mobile-health study. 
 
@@ -191,7 +190,7 @@ At the end, output a single JSON object with exactly these keys (no extra text):
 {"id": "P117", "day": 40, "reason_do": "<string>", "reason_not": "<string>", "decision": "<Yes|No>", "confidence": <float between 0 and 1>}
 ```
 
--User prompt for caregivers (e.g., ```"P210"```, ```target=Day 60```):
+-User prompt for caregivers (e.g., ```target=Day 60```):
 ```bash
 You are a caregiver participant in a dyad in the ROADMAP 2.0 mobile-health study. 
 
@@ -238,8 +237,7 @@ Below is a record of your previous mood survey record (each representing one day
 At the end, output a single JSON object with exactly these keys (no extra text):
 {"id": "P210", "day": 60, "reason_do": "<string>", "reason_not": "<string>", "decision": "<Yes|No>", "confidence": <float between 0 and 1>}
 ```
-**Example**
-```prompt_pre7days_activity.py```
+**Example**```prompt_pre7days_activity.py```
 -User prompt for patients
 ```bash
 
