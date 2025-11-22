@@ -22,9 +22,9 @@ The primary objectives are to:
 | Script | Description |
 |--------|--------------|
 | ```data_process.py``` | Merges some of the study ```.csv```'s under ```/data/``` into a unified ```participants_data.json```, formatting behavioral and demographic records. |
-| ```prompts_gen.py``` | Randomly samples **100 patients** and **100 caregivers**, then generates role-specific prompts for prediction days (0, 20, 40, 60, 80, 100, 120). |
-| ```inference.py``` | Calls **Azure OpenAI API** to simulate participant decisions (Yes/No) for mood-survey completion, saving predictions incrementally to ```.json```. |
-| ```eval.ipynb``` | Evaluates model predictions vs. ground truth (from ```participants_data.json```) and visualizes metrics such as TPR, FPR, overall accuracy, and cross-entropy loss. |
+| ```/prompt``` | generates role-specific (patient & caregiver) prompts for prediction. |
+| ```/inference``` | Calls **Azure OpenAI API** to simulate participant decisions (Yes/No) for mood-survey completion, saving predictions incrementally to ```.json```. |
+| ```/eval``` | Evaluates model predictions vs. ground truth (from ```participants_data.json```) and visualizes metrics such as TPR, FPR, overall accuracy, and cross-entropy loss. |
 
 ---
 ## 🧩 Pipeline Steps
