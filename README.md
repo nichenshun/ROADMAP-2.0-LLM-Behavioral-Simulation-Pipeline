@@ -2,8 +2,17 @@
 
 **Simulation and prediction pipeline for participant behavior in the ROADMAP 2.0 mobile-health study using large language models (LLMs).**
 
-This repository implements an end-to-end experimental framework for simulating and predicting participant mood-survey completion behavior in the *ROADMAP 2.0* clinical study.  
-The project integrates data preprocessing, prompt generation, Azure OpenAI inference, and evaluation modules—enabling reproducible behavioral modeling and analysis of both caregivers and patients.
+This research explores the application of large language models (LLMs) to simulate long-term human behavioral trajectories in clinical settings. 
+
+Our work investigates whether LLMs can serve as realistic behavioral simulators by modeling the day-to-day decision-making processes of participants in the ROADMAP 2.0 mobile-health study. Specifically, we focus on predicting daily mood survey completion behavior over a 120-day post-transplant period, examining how LLMs incorporate demographic characteristics, historical completion patterns, activity data, and situational factors to generate plausible behavioral sequences. 
+
+The primary objectives are to:  
+
+(1) assess the accuracy of LLM-simulated behavioral trajectories against ground truth data,  
+
+(2) analyze performance variations across different demographic subgroups,  
+
+(3) establish baseline comparisons with traditional majority-vote prediction methods. 
 
 ---
 
