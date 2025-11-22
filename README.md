@@ -22,20 +22,20 @@ The primary objectives are to:
 | Script | Description |
 |--------|--------------|
 | ```data_process.py``` | Merges some of the study ```.csv```'s under ```/data/``` into a unified ```participants_data.json```, formatting behavioral and demographic records. |
-| ```/prompt``` | generates role-specific (patient & caregiver) prompts for prediction. |
-| ```/inference``` | Calls **Azure OpenAI API** to simulate participant decisions (Yes/No) for mood-survey completion, saving predictions incrementally to ```.json```. |
-| ```/eval``` | Evaluates model predictions vs. ground truth (from ```participants_data.json```) and visualizes metrics such as TPR, FPR, overall accuracy, and cross-entropy loss. |
+| ```/prompt/``` | generates role-specific (patient & caregiver) prompts for prediction. |
+| ```/inference/``` | Calls **Azure OpenAI API** to simulate participant decisions (Yes/No) for mood-survey completion, saving predictions incrementally to ```.json```. |
+| ```/eval/``` | Evaluates model predictions vs. ground truth (from ```participants_data.json```) and visualizes metrics such as TPR, FPR, overall accuracy, and cross-entropy loss. |
 
 ``` bash
-prompt/
+/prompt/
 ├── prompt_pre7days_activity.py # Prompts for pre-7-days activity setting
 └── prompt_vanilla.py # Vanilla prompt templates
 
-inference/
+/inference/
 ├── single_infer.py # Single-sample inference
 └── traj_infer.py # Trajectory-based inference
 
-eval/
+/eval/
 ├── eval_overall.ipynb # Overall evaluation
 ├── eval_pre7days_activity.ipynb# Evaluation for pre-7-days activity setting
 ├── eval_traj0.ipynb # Evaluation on traj_0 dataset
