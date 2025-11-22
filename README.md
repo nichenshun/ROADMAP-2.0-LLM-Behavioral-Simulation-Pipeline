@@ -189,7 +189,6 @@ Below is a record of your previous mood survey record (each representing one day
 
 At the end, output a single JSON object with exactly these keys (no extra text):
 {"id": "P117", "day": 40, "reason_do": "<string>", "reason_not": "<string>", "decision": "<Yes|No>", "confidence": <float between 0 and 1>}
-
 ```
 
 -User prompt for caregivers (e.g., ```"P210"```, ```target=Day 60```):
