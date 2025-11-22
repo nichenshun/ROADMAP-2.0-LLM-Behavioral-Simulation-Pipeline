@@ -309,6 +309,7 @@ Below is a record of your historical activity and sleep summaries:
 --Estimate: Report the probability that your decision is correct as a single number between 0 and 1 (e.g., 0.73). 
 
 At the end, output a single JSON object with exactly these keys (no extra text): {"id": "P004", "day": 2, "reason_do": "", "reason_not": "", "decision": "<Yes|No>", "confidence": <float between 0 and 1>, "mood_score": <if decision is Yes, provide a number between 1-10; if No, use "missing">}
+```
 
 -User prompt for caregivers
 ```bash
