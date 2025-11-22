@@ -28,19 +28,19 @@ The primary objectives are to:
 
 ``` bash
 /prompt/
-├── prompt_pre7days_activity.py # Prompts for pre-7-days activity setting
-└── prompt_vanilla.py # Vanilla prompt templates
+├── prompt_pre7days_activity.py 
+└── prompt_vanilla.py 
 
 /inference/
-├── single_infer.py # Single-sample inference
-└── traj_infer.py # Trajectory-based inference
+├── single_infer.py 
+└── traj_infer.py 
 
 /eval/
-├── eval_overall.ipynb # Overall evaluation
-├── eval_pre7days_activity.ipynb# Evaluation for pre-7-days activity setting
-├── eval_traj0.ipynb # Evaluation on traj_0 dataset
-├── eval_vanilla.ipynb # Vanilla baseline evaluation
-└── eval_mjvote.ipynb # Majority-vote evaluation
+├── eval_overall.ipynb 
+├── eval_pre7days_activity.ipynb
+├── eval_traj0.ipynb 
+├── eval_vanilla.ipynb 
+└── eval_mjvote.ipynb 
 ```
 
 ---
