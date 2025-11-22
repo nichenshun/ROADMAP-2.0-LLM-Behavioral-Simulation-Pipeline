@@ -293,9 +293,9 @@ Below is a record of your historical activity and sleep summaries:
 "Average sleep duration (hours)": 4.24  
 } 
 
---Question: It has been 20 days since your transplant. Will you complete today's mood survey? 
---Explain: Give one reason to complete the survey and one reason not to; then state your final decision for today (Yes / No). 
---Estimate: Report the probability that your decision is correct as a single number between 0 and 1 (e.g., 0.73). 
+--**Question:** It has been 20 days since your transplant. Will you complete today's mood survey? 
+--**Explain:** Give one reason to complete the survey and one reason not to; then state your final decision for today (Yes / No). 
+--**Estimate:** Report the probability that your decision is correct as a single number between 0 and 1 (e.g., 0.73). 
 
 At the end, output a single JSON object with exactly these keys (no extra text): {"id": "P004", "day": 2, "reason_do": "", "reason_not": "", "decision": "<Yes|No>", "confidence": <float between 0 and 1>, "mood_score": <if decision is Yes, provide a number between 1-10; if No, use "missing">}
 ```
@@ -314,29 +314,21 @@ Each time step in this simulation represents one day.
 
 Below is your background and history with the program. Based on this information, decide whether you will complete today's mood survey. 
 
---Your Background: 
-
+--**Your Background: **
 -You are in the 18-39 age group. 
 -Your gender is female. 
 -Your monthly income is $1,000 - $2,999. 
 -You provide caregiving to your patient for Less than or equal to 40 hours per week.
 
---Your patient partner's background information 
-
+--**Your patient partner's background information：** 
 -Your patient is in the 18-39 age group. 
-
 -Your patient's gender is male. 
-
 -Your patient's monthly income is $3,000 - $4,999. 
-
 -Your patient is assigned to the Intervention arm of the study. 
-
 -Your patient's transplant type is Allogeneic. 
-
 -Your patient stayed in the hospital for 28 days. 
 
---Context: past behavior:  
-
+--**Context: past behavior:**  
 Below is a record of your mood surveys from the previous 7 days (each entry represents one day):  
 {  
 "Day 113": 9.0,  
@@ -362,13 +354,9 @@ Below is a record of your historical activity and sleep summaries:
 "Average sleep duration (hours)": 7.61  
 } 
 
---Question: It has been 120 days since your patient’s transplant. Will you complete today's mood survey? 
-
---Explain: Give one reason to complete the survey and one reason not to; then state your final decision for today (Yes / No). 
-
---Estimate: Report the probability that your decision is correct as a single number between 0 and 1 (e.g., 0.73). 
-
- 
+--**Question:** It has been 120 days since your patient’s transplant. Will you complete today's mood survey? 
+--**Explain:** Give one reason to complete the survey and one reason not to; then state your final decision for today (Yes / No). 
+--**Estimate:** Report the probability that your decision is correct as a single number between 0 and 1 (e.g., 0.73). 
 
 At the end, output a single JSON object with exactly these keys (no extra text): {"id": "P004", "day": 2, "reason_do": "", "reason_not": "", "decision": "<Yes|No>", "confidence": <float between 0 and 1>, "mood_score": <if decision is Yes, provide a number between 1-10; if No, use "missing">}
 ```
