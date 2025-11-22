@@ -192,7 +192,7 @@ At the end, output a single JSON object with exactly these keys (no extra text):
 
 ```
 
-User prompt for caregivers (e.g., ```"P210"```, ```target=Day 60```):
+-User prompt for caregivers (e.g., ```"P210"```, ```target=Day 60```):
 ```bash
 You are a caregiver participant in a dyad in the ROADMAP 2.0 mobile-health study. 
 
@@ -241,6 +241,153 @@ At the end, output a single JSON object with exactly these keys (no extra text):
 ```
 **Example**
 ```prompt_pre7days_activity.py```
+-User prompt for patients
+```bash
+
+You are a patient participant in a dyad in the ROADMAP 2.0 mobile-health study.  
+
+You are a patient recovering from a hematopoietic cell transplantation (HCT) to treat a blood-related disease such as leukemia or lymphoma. During recovery, you may experience fatigue, nausea, pain, sleep disturbances, and emotional stress, while relying on your care partner and medical team to help you regain strength and prevent complications like infections or graft-versus-host disease.  
+
+Each day, you are asked to enter your mood on a 1-10 scale (1=worst, 10=best).  
+
+The study seeks to understand links between sensor data and well-being and to support caregivers during and after transplant.  
+
+Each time step in this simulation represents one day. 
+
+Below is your background and history with the program. Based on this information, decide whether you will complete today's mood survey. 
+
+--Your Background: 
+
+-You are in the 61+ age group. 
+
+-Your gender is male. 
+
+-Your monthly income is $3,000 - $4,999. 
+
+-You are assigned to the Control arm of the study. 
+
+-Your transplant type is Allogeneic. 
+
+-You stayed in the hospital for 26 days. 
+
+-You receive caregiving from your caregiver for Less than or equal to 40 hours per week. 
+
+--Your caregiver partner's background information 
+
+-Your caregiver is in the 61+ age group. 
+
+-Your caregiver's gender is female. 
+
+-Your caregiver's monthly income is $3,000 - $4,999. 
+
+--Context: past behavior:  
+
+Below is a record of your mood surveys from the previous 7 days (each entry represents one day):  
+{ 
+ "Day 13": "missing",  
+ "Day 14": "missing",  
+ "Day 15": "missing",  
+ "Day 16": "missing",  
+ "Day 17": 6.0,  
+ "Day 18": 7.0,  
+ "Day 19": 7.0  
+} 
+
+Below is a summary of your historical mood completion prior to today:  
+{  
+"Missing days prior to Day 20": 12,  
+"Average mood on completed days prior to Day 20": 6.5  
+} 
+
+Below is a record of your historical activity and sleep summaries:  
+{  
+"Average daily steps": 863.05,  
+"Average sedentary time (mins)": 1266.55,  
+"Average active time (mins)": 61.2,  
+"Average sleep duration (hours)": 4.24  
+} 
+
+--Question: It has been 20 days since your transplant. Will you complete today's mood survey? 
+--Explain: Give one reason to complete the survey and one reason not to; then state your final decision for today (Yes / No). 
+--Estimate: Report the probability that your decision is correct as a single number between 0 and 1 (e.g., 0.73). 
+
+At the end, output a single JSON object with exactly these keys (no extra text): {"id": "P004", "day": 2, "reason_do": "", "reason_not": "", "decision": "<Yes|No>", "confidence": <float between 0 and 1>, "mood_score": <if decision is Yes, provide a number between 1-10; if No, use "missing">}
+
+-User prompt for caregivers
+```bash
+You are a caregiver participant in a dyad in the ROADMAP 2.0 mobile-health study.  
+
+You are a caregiver for a loved one recovering from a hematopoietic cell transplantation (HCT) for a serious blood or immune disorder. You provide daily physical and emotional support, monitor for complications, manage medications and appointments, and balance these duties with your own daily work routine.  
+
+Each day, you are asked to enter your mood on a 1-10 scale (1=worst, 10=best).  
+
+The study seeks to understand links between sensor data and well-being and to support caregivers during and after transplant.  
+
+Each time step in this simulation represents one day. 
+
+Below is your background and history with the program. Based on this information, decide whether you will complete today's mood survey. 
+
+--Your Background: 
+
+-You are in the 18-39 age group. 
+
+-Your gender is female. 
+
+-Your monthly income is $1,000 - $2,999. 
+
+-You provide caregiving to your patient for Less than or equal to 40 hours per week. 
+
+--Your patient partner's background information 
+
+-Your patient is in the 18-39 age group. 
+
+-Your patient's gender is male. 
+
+-Your patient's monthly income is $3,000 - $4,999. 
+
+-Your patient is assigned to the Intervention arm of the study. 
+
+-Your patient's transplant type is Allogeneic. 
+
+-Your patient stayed in the hospital for 28 days. 
+
+--Context: past behavior:  
+
+Below is a record of your mood surveys from the previous 7 days (each entry represents one day):  
+{  
+"Day 113": 9.0,  
+"Day 114": 9.0,  
+"Day 115": 9.0,  
+"Day 116": 9.0,  
+"Day 117": 5.0,  
+"Day 118": 9.0,  
+"Day 119": 8.0  
+} 
+
+Below is a summary of your historical mood completion prior to today:  
+{  
+"Missing days prior to Day 120": 2,  
+"Average mood on completed days prior to Day 120": 8.68  
+} 
+
+Below is a record of your historical activity and sleep summaries:  
+{  
+"Average daily steps": 7775.6,  
+"Average sedentary time (mins)": 866.3,  
+"Average active time (mins)": 349.5,  
+"Average sleep duration (hours)": 7.61  
+} 
+
+--Question: It has been 120 days since your patient’s transplant. Will you complete today's mood survey? 
+
+--Explain: Give one reason to complete the survey and one reason not to; then state your final decision for today (Yes / No). 
+
+--Estimate: Report the probability that your decision is correct as a single number between 0 and 1 (e.g., 0.73). 
+
+ 
+
+At the end, output a single JSON object with exactly these keys (no extra text): {"id": "P004", "day": 2, "reason_do": "", "reason_not": "", "decision": "<Yes|No>", "confidence": <float between 0 and 1>, "mood_score": <if decision is Yes, provide a number between 1-10; if No, use "missing">}
+```
 
 ### 3️⃣ Inference 
 **Goal**
