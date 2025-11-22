@@ -142,9 +142,7 @@ prompts/
 ├── patients_day120.json
 ```
 **Example**
-```bash
-prompt_vanilla.py
-```
+```prompt_vanilla.py```
 - User prompt for patients (e.g., ```"P117"```, ```target=Day 40```):
 ```bash
 You are a patient participant in a dyad in the ROADMAP 2.0 mobile-health study. 
