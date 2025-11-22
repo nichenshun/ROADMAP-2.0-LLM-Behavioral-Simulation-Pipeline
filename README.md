@@ -61,9 +61,7 @@ Build a unified `.json` dataset `participants_data.json` from multiple raw `.csv
 - mood.csv
 ```
 **Run**
-```bash
-python data_process.py
-```
+```python data_process.py```
 This produces a comprehensive file: 
 ``` bash
 participants_data.json
