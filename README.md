@@ -253,32 +253,21 @@ Each time step in this simulation represents one day.
 
 Below is your background and history with the program. Based on this information, decide whether you will complete today's mood survey. 
 
---Your Background: 
-
+--**Your Background:** 
 -You are in the 61+ age group. 
-
 -Your gender is male. 
-
 -Your monthly income is $3,000 - $4,999. 
-
 -You are assigned to the Control arm of the study. 
-
 -Your transplant type is Allogeneic. 
-
 -You stayed in the hospital for 26 days. 
-
 -You receive caregiving from your caregiver for Less than or equal to 40 hours per week. 
 
---Your caregiver partner's background information 
-
+--**Your caregiver partner's background information：** 
 -Your caregiver is in the 61+ age group. 
-
 -Your caregiver's gender is female. 
-
 -Your caregiver's monthly income is $3,000 - $4,999. 
 
 --Context: past behavior:  
-
 Below is a record of your mood surveys from the previous 7 days (each entry represents one day):  
 { 
  "Day 13": "missing",  
@@ -328,12 +317,9 @@ Below is your background and history with the program. Based on this information
 --Your Background: 
 
 -You are in the 18-39 age group. 
-
 -Your gender is female. 
-
 -Your monthly income is $1,000 - $2,999. 
-
--You provide caregiving to your patient for Less than or equal to 40 hours per week. 
+-You provide caregiving to your patient for Less than or equal to 40 hours per week.
 
 --Your patient partner's background information 
 
