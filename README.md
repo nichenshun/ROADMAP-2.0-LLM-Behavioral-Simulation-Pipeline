@@ -124,11 +124,11 @@ Generate natural-language prompts for the LLM, one per participant per target da
 - A standardized **Question / Explain / Estimate** instruction asking the model to decide whether the participant will complete **the target’s** mood survey
 
 **Run**
-cd prompt
 ```bash
-python prompts_{TYPE}.py
+cd prompt
+python prompts_{type}.py
 ```
-This will create prompt ```.json``` files under ```/prompts```:
+This will create prompt ```.json``` files under ```/rdmap_prompts_{type}```:
 ```bash
 prompts/
 ├── caregivers_day0.json
